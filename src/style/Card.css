@@ -1,0 +1,170 @@
+
+.bookshelf {
+    position: relative;
+    margin: 40px auto 0;
+    list-style: none;
+    text-align: center;
+}
+
+.bookshelf figure {
+    position: relative;
+    display: inline-block;
+    margin: 10px 0 0 0;
+    padding: 10px 0;
+    max-width: 75%;
+    width:235px;
+    vertical-align: top;
+}
+
+.perspective {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    -webkit-perspective: 1800px;
+    perspective: 1800px;
+}
+
+.book {
+    position: relative;
+    margin: 0 auto;
+    width: 180px;
+    height: 260px;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.book div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.cover {
+    z-index: 10;
+    -webkit-transform-origin: 0% 50%;
+    transform-origin: 0% 50%;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.cover::before {
+    position: absolute;
+    left: 0;
+    z-index: 10;
+    visibility: hidden;
+    width: 20px;
+    height: 100%;
+    background: #000;
+    content: '';
+    -webkit-transform: translateX(-100%) rotateY(-90deg);
+    transform: translateX(-100%) rotateY(-90deg);
+    -webkit-transform-origin: 100% 50%;
+    transform-origin: 100% 50%;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.front {
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.inner {
+    border-width: 3px;
+    border-style: solid;
+    background-color: #fff;
+}
+
+.bookshelf .book .inner-left {
+    border-right: none;
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.inner-right { border-left: none }
+.book {
+    -webkit-transition: -webkit-transform 0.5s, opacity 0.3s 0.3s;
+    transition: transform 0.5s, opacity 0.3s 0.3s;
+    -webkit-transform-origin: 0% 50%;
+    transform-origin: 0% 50%;
+}
+
+.inner-right {
+    background-color: #ddd;
+    -webkit-transition: background-color 0.5s 0.25s;
+    transition: background-color 0.5s 0.25s;
+}
+
+
+/* Details background */
+
+.bookshelf figure::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    content: '';
+    opacity: 0;
+    -webkit-transition: opacity 0.3s, visibility 0s 0.3s;
+    transition: opacity 0.3s, visibility 0s 0.3s;
+}
+
+.bookshelf figure::after {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 0;
+    background: rgba(51, 51, 51, 0.1);
+    content: '';
+    opacity: 0;
+    -webkit-transition: opacity 0.3s, height 0s 0.3s;
+    transition: opacity 0.3s, height 0s 0.3s;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+
+.bookshelf figcaption {
+    position: relative;
+    top: 100%;
+    padding: 0 2em;
+    text-align: center;
+}
+
+.bookshelf figcaption h2 {
+    margin: 1em 0 0 0;
+    font-weight: 300;
+    font-size: 1.8em;
+    font-family: "Abril Fatface", serif;
+}
+
+.bookshelf figcaption h2 span {
+    position: relative;
+    display: block;
+    margin: 4px 0 0 0;
+    padding: 4px 0 0 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 400;
+    font-size: 0.4em;
+    font-family: "Lato", sans-serif;
+}
+
+.bookshelf figcaption h2 span::before {
+    position: absolute;
+    top: 0;
+    left: 40%;
+    width: 20%;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.1);
+    content: '';
+}
+
